@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwitchFrame Media - Lead Generation Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        .flowchart-step {
+            min-width: 150px;
+            text-align: center;
+        }
+        .flowchart-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            color: #DC2626;
+        }
+        .flowchart-arrow::after {
+            content: '→';
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .flowchart-container .flowchart-step:last-child + .flowchart-arrow {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .flowchart-arrow::after {
+                content: '↓';
+            }
+            .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-[#DC2626] mb-2">SwitchFrame Media</h1>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700">Lead Generation & Growth Strategy</h2>
+        </header>
+        
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <section class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col md:flex-row items-center justify-around text-center">
+                <div class="mb-6 md:mb-0 md:mr-6">
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Our Mission</h3>
+                    <p class="text-3xl md:text-4xl font-extrabold text-[#DC2626]">Re-engage & Generate</p>
+                    <p class="mt-2 text-gray-500">Highlighting our core strength: professional video storytelling.</p>
+                </div>
+                <div class="border-t-2 md:border-t-0 md:border-l-2 border-gray-200 w-full md:w-auto h-px md:h-24"></div>
+                <div class="mt-6 md:mt-0 md:ml-6">
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Our Goal</h3>
+                    <p class="text-3xl md:text-4xl font-extrabold text-[#1F2937]">Become Creative Partners</p>
+                    <p class="mt-2 text-gray-500">We don't just produce videos; we find and craft compelling stories.</p>
+                </div>
+            </section>
+
+            <section class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#1F2937]">Our Storytelling Arsenal</h3>
+                <p class="text-gray-600 mb-6">Our value isn't just in production; it's in our diverse ability to find the human narrative that elevates any project. This chart highlights our key service offerings, each a powerful tool for building connections with audiences.</p>
+                <div class="chart-container h-[450px] max-h-[60vh]">
+                    <canvas id="servicesChart"></canvas>
+                </div>
+            </section>
+            
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#1F2937]">Targeting Our Future Clients</h3>
+                <p class="text-gray-600 mb-6">Our lead generation efforts are focused on distinct client silos, each with unique needs. This approach allows us to tailor our messaging and demonstrate immediate value.</p>
+                <div class="chart-container h-80 max-h-[40vh]">
+                    <canvas id="targetsChart"></canvas>
+                </div>
+                 <div class="mt-6 text-sm text-gray-700">
+                    <p class="mb-2"><strong class="text-[#1F2937]">Mid-Sized Businesses:</strong> Marketing Directors, Founders, CEOs.</p>
+                    <p class="mb-2"><strong class="text-[#1F2937]">Large Corporations:</strong> Heads of Comms, Marketing & Video Managers.</p>
+                    <p class="mb-2"><strong class="text-[#1F2937]">PR Agencies:</strong> Creative Directors, Account Managers.</p>
+                    <p><strong class="text-[#1F2937]">New Sectors:</strong> HR/Training Depts, Funded Startups.</p>
+                </div>
+            </section>
+            
+            <section class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#1F2937]">Building Our Presence: The Content Rotation</h3>
+                <p class="text-gray-600 mb-8 text-center max-w-3xl mx-auto">To stay top-of-mind, we'll implement a consistent, high-value weekly content strategy. This rotation ensures our network sees us not just as vendors, but as active experts in the storytelling and marketing space.</p>
+                <div class="flowchart-container flex flex-col md:flex-row justify-center items-stretch w-full overflow-x-auto pb-4">
+                    <div class="flowchart-step flex flex-col items-center justify-center p-4 m-2 bg-gray-50 border-2 border-[#1F2937] rounded-lg">
+                        <span class="text-3xl mb-2">🗓️</span>
+                        <h4 class="font-bold text-[#1F2937]">Week 1: Project Showcase</h4>
+                        <p class="text-sm text-gray-600">Deep dive into a recent project's story and success.</p>
+                    </div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="flowchart-step flex flex-col items-center justify-center p-4 m-2 bg-gray-50 border-2 border-[#1F2937] rounded-lg">
+                        <span class="text-3xl mb-2">🔍</span>
+                        <h4 class="font-bold text-[#1F2937]">Week 2: Deconstruct a Story</h4>
+                        <p class="text-sm text-gray-600">Analyze a great ad and highlight why it works.</p>
+                    </div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="flowchart-step flex flex-col items-center justify-center p-4 m-2 bg-gray-50 border-2 border-[#1F2937] rounded-lg">
+                        <span class="text-3xl mb-2">🎬</span>
+                        <h4 class="font-bold text-[#1F2937]">Week 3: Behind the Scenes</h4>
+                        <p class="text-sm text-gray-600">Share a glimpse of our craft and production process.</p>
+                    </div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="flowchart-step flex flex-col items-center justify-center p-4 m-2 bg-gray-50 border-2 border-[#1F2937] rounded-lg">
+                         <span class="text-3xl mb-2">💡</span>
+                        <h4 class="font-bold text-[#1F2937]">Week 4: Industry Insights</h4>
+                        <p class="text-sm text-gray-600">Comment on relevant articles and share our perspective.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#1F2937] text-center">The Path to Connection: Our Outreach Plan</h3>
+                <p class="text-gray-600 mb-8 text-center max-w-3xl mx-auto">Our outreach is a strategic, three-step process designed to build genuine connections. This is not about spamming, but about identifying the right people and starting valuable conversations.</p>
+                <div class="relative w-full max-w-4xl mx-auto">
+                    <div class="border-l-4 border-gray-400 absolute h-full top-0 left-4"></div>
+                    <div class="mb-8 pl-12 relative">
+                        <div class="absolute w-8 h-8 bg-[#DC2626] rounded-full -left-4 border-4 border-white flex items-center justify-center text-white font-bold">1</div>
+                        <h4 class="font-bold text-xl text-[#1F2937]">Identify Companies</h4>
+                        <p class="text-gray-600 mt-1">Use targeted Google searches and industry lists (e.g., "fastest-growing companies in Toronto") to build a highly relevant list of potential clients.</p>
+                    </div>
+                    <div class="mb-8 pl-12 relative">
+                        <div class="absolute w-8 h-8 bg-[#DC2626] rounded-full -left-4 border-4 border-white flex items-center justify-center text-white font-bold">2</div>
+                        <h4 class="font-bold text-xl text-[#1F2937]">Find the Right Person</h4>
+                        <p class="text-gray-600 mt-1">Navigate to the company's LinkedIn page and use the "People" tab to find decision-makers with titles like "Marketing Director" or "Head of Communications".</p>
+                    </div>
+                    <div class="pl-12 relative">
+                        <div class="absolute w-8 h-8 bg-[#DC2626] rounded-full -left-4 border-4 border-white flex items-center justify-center text-white font-bold">3</div>
+                        <h4 class="font-bold text-xl text-[#1F2937]">Connect Strategically</h4>
+                        <p class="text-gray-600 mt-1">Prioritize leveraging mutual connections for a warm introduction. If none exist, send a personalized connection request that clearly states your value and purpose.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="md:col-span-2 lg:col-span-3 bg-gray-200 text-gray-800 rounded-lg shadow-lg p-6 md:p-8 text-center">
+                <h3 class="text-3xl font-bold mb-4 text-[#DC2626]">Our Action Plan: Next Steps</h3>
+                <p class="max-w-2xl mx-auto mb-6 opacity-90">Strategy is nothing without execution. These are our immediate priorities to turn this plan into new business.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <div class="p-4 bg-white rounded-lg">
+                        <p class="font-bold text-lg text-[#1F2937]">1. Develop Email Campaigns</p>
+                        <p class="text-sm">Create unique templates for each target silo.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg">
+                        <p class="font-bold text-lg text-[#1F2937]">2. Initiate Social Content</p>
+                        <p class="text-sm">Begin posting weekly based on our 4 pillars.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg">
+                        <p class="font-bold text-lg text-[#1F2937]">3. Build Lead Lists</p>
+                        <p class="text-sm">Start identifying key contacts at target companies.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h3 class="text-2xl font-bold mb-1 text-[#1F2937] text-center">✨ Your AI Sales & Marketing Assistant ✨</h3>
+                <p class="text-gray-600 mb-8 text-center max-w-3xl mx-auto">Use the power of AI to streamline your workflow. Get personalized email drafts and creative content ideas instantly.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Email Drafter Section -->
+                    <div class="flex flex-col p-6 rounded-lg border border-gray-200">
+                        <h4 class="text-xl font-semibold mb-4 text-[#1F2937]">Draft a Lead Generation Email</h4>
+                        <label for="emailInput" class="block text-sm font-medium text-gray-700 mb-1">Enter client name, company, and a specific need (e.g., "Jane Smith at Acme Corp needs a brand story video.")</label>
+                        <textarea id="emailInput" class="w-full h-24 p-2 mb-4 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"></textarea>
+                        <button id="generateEmailBtn" class="w-full px-4 py-2 text-white font-bold bg-[#DC2626] rounded-md hover:bg-red-700 transition-colors">✨ Generate Email</button>
+                        
+                        <div id="emailOutputContainer" class="mt-4 hidden">
+                            <h5 class="text-md font-semibold text-gray-700 mb-2">Drafted Email:</h5>
+                            <pre id="emailOutput" class="w-full p-2 whitespace-pre-wrap bg-gray-100 rounded-md text-gray-800 text-sm overflow-auto"></pre>
+                        </div>
+                        <div id="emailLoader" class="hidden mt-4 text-center">
+                            <span class="text-gray-500">Generating email...</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Brainstormer Section -->
+                    <div class="flex flex-col p-6 rounded-lg border border-gray-200">
+                        <h4 class="text-xl font-semibold mb-4 text-[#1F2937]">Brainstorm a Social Media Post</h4>
+                        <label for="pillarSelect" class="block text-sm font-medium text-gray-700 mb-1">Choose a Content Pillar:</label>
+                        <select id="pillarSelect" class="w-full p-2 mb-4 border border-gray-300 rounded-md">
+                            <option value="">-- Select One --</option>
+                            <option value="Project Showcase">Project Showcase</option>
+                            <option value="Deconstruct a Story">Deconstruct a Story</option>
+                            <option value="Behind the Scenes">Behind the Scenes</option>
+                            <option value="Industry Insights">Industry Insights</option>
+                        </select>
+                        <button id="generatePostBtn" class="w-full px-4 py-2 text-white font-bold bg-[#DC2626] rounded-md hover:bg-red-700 transition-colors">✨ Get Post Idea</button>
+
+                        <div id="postOutputContainer" class="mt-4 hidden">
+                            <h5 class="text-md font-semibold text-gray-700 mb-2">Post Idea:</h5>
+                            <pre id="postOutput" class="w-full p-2 whitespace-pre-wrap bg-gray-100 rounded-md text-gray-800 text-sm overflow-auto"></pre>
+                        </div>
+                        <div id="postLoader" class="hidden mt-4 text-center">
+                            <span class="text-gray-500">Brainstorming idea...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2025 SwitchFrame Media. This is a strategic plan for growth and outreach.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth = 16) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const chartColors = ['#DC2626', '#1F2937', '#6B7280', '#D1D5DB'];
+
+        const servicesCtx = document.getElementById('servicesChart').getContext('2d');
+        const servicesChart = new Chart(servicesCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('Personal Profiles'), 
+                    wrapLabel('Narration-Based Brand Films'), 
+                    wrapLabel('Ads & Commercials'), 
+                    wrapLabel('Animated Guides and Explainers'), 
+                    wrapLabel('The "Yes" People (Flexible Support)')
+                ],
+                datasets: [{
+                    label: 'Core Service Offerings',
+                    data: [100, 100, 100, 100, 100],
+                    backgroundColor: chartColors,
+                    borderColor: chartColors.map(color => color + 'B3'),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: (context) => {
+                                const rawLabel = context[0].label;
+                                return rawLabel.replaceAll(',', ' ');
+                           }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: false,
+                        max: 110
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            },
+                            color: '#374151'
+                        }
+                    }
+                }
+            }
+        });
+
+        const targetsCtx = document.getElementById('targetsChart').getContext('2d');
+        const targetsChart = new Chart(targetsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Mid-Sized Businesses',
+                    'Large Corporations',
+                    'PR Agencies',
+                    'New Sectors (HR & Startups)'
+                ],
+                datasets: [{
+                    label: 'Target Client Silos',
+                    data: [35, 30, 20, 15],
+                    backgroundColor: chartColors,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                             font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const generateEmailBtn = document.getElementById('generateEmailBtn');
+        const emailInput = document.getElementById('emailInput');
+        const emailOutput = document.getElementById('emailOutput');
+        const emailOutputContainer = document.getElementById('emailOutputContainer');
+        const emailLoader = document.getElementById('emailLoader');
+
+        const generatePostBtn = document.getElementById('generatePostBtn');
+        const pillarSelect = document.getElementById('pillarSelect');
+        const postOutput = document.getElementById('postOutput');
+        const postOutputContainer = document.getElementById('postOutputContainer');
+        const postLoader = document.getElementById('postLoader');
+
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+        generateEmailBtn.addEventListener('click', async () => {
+            const prompt = emailInput.value.trim();
+            if (prompt === "") {
+                emailOutput.textContent = "Please provide some context for the email.";
+                emailOutputContainer.classList.remove('hidden');
+                return;
+            }
+
+            emailLoader.classList.remove('hidden');
+            emailOutputContainer.classList.add('hidden');
+
+            const systemPrompt = "You are a professional sales manager for SwitchFrame Media, a video production company specializing in storytelling. Draft a concise, personalized cold outreach email to a potential lead based on the user's prompt. The tone should be friendly and professional, and the email should highlight how SwitchFrame Media's video storytelling can solve the client's specific problem. Include a call to action to schedule a brief call. Do not include any placeholder brackets like [Client Name].";
+            const userQuery = `Draft a lead generation email for the following situation: ${prompt}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            let retryCount = 0;
+            const maxRetries = 3;
+            let success = false;
+
+            while (retryCount < maxRetries && !success) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (response.status === 429) {
+                        retryCount++;
+                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, retryCount) * 1000));
+                        continue;
+                    }
+                    
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (text) {
+                        emailOutput.textContent = text;
+                        emailOutputContainer.classList.remove('hidden');
+                        success = true;
+                    } else {
+                        emailOutput.textContent = "Could not generate email. Please try again.";
+                        emailOutputContainer.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    emailOutput.textContent = "An error occurred. Please check your network and try again.";
+                    emailOutputContainer.classList.remove('hidden');
+                    break;
+                } finally {
+                    emailLoader.classList.add('hidden');
+                }
+            }
+
+            if (!success) {
+                emailOutput.textContent = "Failed to generate email after multiple retries. Please try again later.";
+                emailOutputContainer.classList.remove('hidden');
+            }
+        });
+
+        generatePostBtn.addEventListener('click', async () => {
+            const pillar = pillarSelect.value;
+            if (pillar === "") {
+                postOutput.textContent = "Please select a content pillar.";
+                postOutputContainer.classList.remove('hidden');
+                return;
+            }
+
+            postLoader.classList.remove('hidden');
+            postOutputContainer.classList.add('hidden');
+
+            const systemPrompt = "You are a social media manager for SwitchFrame Media. Your task is to generate a concise, engaging, and inspiring social media post idea based on the user's selected content pillar. Provide a brief idea for the post content and a suggested caption. The tone should be creative and professional.";
+            const userQuery = `Generate a social media post idea for the "${pillar}" content pillar.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+            
+            let retryCount = 0;
+            const maxRetries = 3;
+            let success = false;
+
+            while (retryCount < maxRetries && !success) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.status === 429) {
+                        retryCount++;
+                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, retryCount) * 1000));
+                        continue;
+                    }
+                    
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (text) {
+                        postOutput.textContent = text;
+                        postOutputContainer.classList.remove('hidden');
+                        success = true;
+                    } else {
+                        postOutput.textContent = "Could not generate post idea. Please try again.";
+                        postOutputContainer.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    postOutput.textContent = "An error occurred. Please check your network and try again.";
+                    postOutputContainer.classList.remove('hidden');
+                    break;
+                } finally {
+                    postLoader.classList.add('hidden');
+                }
+            }
+
+            if (!success) {
+                postOutput.textContent = "Failed to generate post idea after multiple retries. Please try again later.";
+                postOutputContainer.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
