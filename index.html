@@ -181,6 +181,13 @@
                         <h4 class="text-xl font-semibold mb-4 text-[#1F2937]">Draft a Lead Generation Email</h4>
                         <label for="emailInput" class="block text-sm font-medium text-gray-700 mb-1">Enter client name, company, and a specific need:</label>
                         <textarea id="emailInput" class="w-full h-24 p-2 mb-4 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"></textarea>
+                        
+                        <label for="clientTypeSelect" class="block text-sm font-medium text-gray-700 mb-1">Select Client Type:</label>
+                        <select id="clientTypeSelect" class="w-full p-2 mb-4 border border-gray-300 rounded-md">
+                            <option value="new">New Client</option>
+                            <option value="existing">Existing Client</option>
+                            <option value="friend">Friend Client</option>
+                        </select>
 
                         <label for="toneSelect" class="block text-sm font-medium text-gray-700 mb-1">Select Email Tone:</label>
                         <select id="toneSelect" class="w-full p-2 mb-4 border border-gray-300 rounded-md">
@@ -359,6 +366,7 @@
 
         const generateEmailBtn = document.getElementById('generateEmailBtn');
         const emailInput = document.getElementById('emailInput');
+        const clientTypeSelect = document.getElementById('clientTypeSelect');
         const toneSelect = document.getElementById('toneSelect');
         const emailOutput = document.getElementById('emailOutput');
         const emailOutputContainer = document.getElementById('emailOutputContainer');
@@ -383,23 +391,40 @@
 
             emailLoader.classList.remove('hidden');
             emailOutputContainer.classList.add('hidden');
-            const selectedTone = toneSelect.value;
-            let systemPrompt = "";
+            
+            const clientType = clientTypeSelect.value;
+            const tone = toneSelect.value;
+            
+            let systemPrompt = "You are a sales manager for SwitchFrame Media, a video production company specializing in storytelling. ";
+            let toneInstruction = "";
+            let clientInstruction = "";
 
-            switch(selectedTone) {
+            switch(clientType) {
+                case 'new':
+                    clientInstruction = "Draft a cold outreach email to a new potential lead. ";
+                    break;
+                case 'existing':
+                    clientInstruction = "Draft an email to an existing client. Reference past work if possible. ";
+                    break;
+                case 'friend':
+                    clientInstruction = "Draft an email to a past client who is also a friend. The email should sound very personal and casual. ";
+                    break;
+            }
+
+            switch(tone) {
                 case 'casual':
-                    systemPrompt = "You are a friendly and professional sales manager for SwitchFrame Media, a video production company specializing in storytelling. Draft a concise and conversational cold outreach email to a potential lead. The email should sound like a friendly, casual chat, and it should highlight how SwitchFrame Media's video storytelling can solve the client's specific problem. Include a call to action to schedule a brief call. Do not include any placeholder brackets like [Client Name].";
+                    toneInstruction = "The email should sound like a friendly, casual chat. ";
                     break;
                 case 'professional':
-                    systemPrompt = "You are a professional sales manager for SwitchFrame Media, a video production company specializing in storytelling. Draft a concise and formal cold outreach email to a potential lead. The email should use professional language, highlight SwitchFrame Media's expertise in solving the client's problem, and include a clear call to action to schedule a meeting. Do not include any placeholder brackets like [Client Name].";
+                    toneInstruction = "The email should use professional and concise language. ";
                     break;
                 case 'enthusiastic':
-                    systemPrompt = "You are a passionate and energetic sales manager for SwitchFrame Media, a video production company specializing in storytelling. Draft a brief and exciting cold outreach email to a potential lead. The email should convey genuine excitement about their work, highlight how SwitchFrame Media's storytelling can create something truly special for them, and end with an enthusiastic call to action. Do not include any placeholder brackets like [Client Name].";
+                    toneInstruction = "The email should convey genuine excitement and passion. ";
                     break;
-                default:
-                    systemPrompt = "You are a friendly and professional sales manager for SwitchFrame Media, a video production company specializing in storytelling. Draft a concise and conversational cold outreach email to a potential lead. The email should sound like a friendly, casual chat, and it should highlight how SwitchFrame Media's video storytelling can solve the client's specific problem. Include a call to action to schedule a brief call. Do not include any placeholder brackets like [Client Name].";
             }
             
+            systemPrompt += clientInstruction + toneInstruction + "It should highlight how SwitchFrame Media's video storytelling can solve the client's specific problem and include a call to action to schedule a brief call. Do not include any placeholder brackets like [Client Name].";
+
             const userQuery = `Draft a lead generation email for the following situation: ${prompt}`;
             
             const payload = {
